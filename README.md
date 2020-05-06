@@ -31,7 +31,7 @@ Add localhost node
         - dfs.datanode.data.dir=/hadoop/hdf/data
         - dfs.namenode.name.dir=/hadoop/hdf/namenode
         - dfs.namenode.checkpoint.dir=/hadoop/hdf/secondaryname
-        - yarn.nodemanager.local-dirs=/hadoop/hdf/local
+        - yarn.nodemanager.local-dirs=/hadoop/yarn/local
         - dfs.replication=1
 
 

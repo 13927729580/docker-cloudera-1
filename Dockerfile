@@ -22,6 +22,7 @@ RUN apt-get update &&\
         ca-certificates \
         openjdk-8-jdk \
         mysql-server \
+        openssh-server \
         libmysql-java &&\
     wget -q ${CLOUDERA_BASE_URL}/cloudera-manager.list -P /etc/apt/sources.list.d &&\
     wget -q ${CLOUDERA_BASE_URL}/archive.key -O - | apt-key add - &&\ 
@@ -34,6 +35,11 @@ RUN apt-get update &&\
     apt-get install --yes cloudera-manager-daemons cloudera-manager-agent cloudera-manager-server &&\
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
+# SSH access
+RUN echo 'root:root' | chpasswd
+RUN sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config 
 
 COPY ./sql.sql /sql.sql
 COPY ./mysqld_cloudera.cnf /etc/mysql/mysql.conf.d/mysqld_cloudera.cnf
