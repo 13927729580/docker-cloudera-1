@@ -12,6 +12,11 @@ Access console
 ```
 $ docker exec -it cloudera bash
 ```
+SSH access
+```
+$ ssh root@localhost -p 2204
+```
+password: _root_
 
 ### Setup Cluster 
 Add localhost node 
@@ -23,16 +28,16 @@ Add localhost node
     - Select Repository, use _Parcels_ and select _CDH-6.3.1_
     - Select Services, select _Essentials_
     - Setup Database (MySQL)
-        - Hive (database=metastore, user=hive, password=hive)
-        - Activity Monitor (database=amon, user=amon, password=amon)
-        - Oozie Server (database=oozie, user=oozie, password=oozie)
-        - Hue (database=hue, user=hue, password=hue)
+        - Hive (_database=metastore, user=hive, password=hive_)
+        - Activity Monitor (_database=amon, user=amon, password=amon_)
+        - Oozie Server (_database=oozie, user=oozie, password=oozie_)
+        - Hue (_database=hue, user=hue, password=hue_)
     - Configurations
-        - dfs.datanode.data.dir=/hadoop/hdf/data
-        - dfs.namenode.name.dir=/hadoop/hdf/namenode
-        - dfs.namenode.checkpoint.dir=/hadoop/hdf/secondaryname
-        - yarn.nodemanager.local-dirs=/hadoop/yarn/local
-        - dfs.replication=1
+        - _dfs.datanode.data.dir_=/hadoop/hdf/data
+        - _dfs.namenode.name.dir_=/hadoop/hdf/namenode
+        - _dfs.namenode.checkpoint.dir_=/hadoop/hdf/secondaryname
+        - _yarn.nodemanager.local-dirs_=/hadoop/yarn/local
+        - _dfs.replication_=1
 
 
 
